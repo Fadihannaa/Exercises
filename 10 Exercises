@@ -1,0 +1,229 @@
+#Exercises
+
+
+#1_ palindorme Checker:Write a function that checks whether a given string is palindrome.
+
+def is_palindrome(string):
+    string = string.replace(" ","").lower()
+
+    if string == string[::-1]:
+        return true
+    else:
+        return false
+
+
+    #Test my code
+    
+    word = input("Enter a string: ")
+    if is_palindrome(word):
+        print(f"{word} is palindrome.")
+    else:
+        print(f"{word is palindrome.")
+
+
+#2_ Prime Number Generator: create a function that generates a list of prime numbers up to a given limit
+
+def generate_primes(limit):
+    prime_list = []
+    for num in range(2, limit + 1):
+        is_prime = True
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
+                is_prime = False
+                break
+        if is_prime:
+            prime_list.append(num)
+    return prime_list
+
+
+#3_ File manupulation: Write a program that reads a text file, counts the occurances of each word, and displays 5 the top 5 most frequent words
+
+from Collections import Counter
+
+def count_words(filename):
+    with open(filename, 'r') as file:
+        words = file.read().split()
+
+
+        word_counts = Counter(words)
+
+
+        top_words = word_count.most_common(5)
+
+        return top_words
+
+#4_ HangmanGame: implement a text based version of the hangman game. The program should choose a random word and allow the user to guess a letter until they win or lose
+
+import random
+def hagman():
+    words = ["internet", "java" , "pyhton" ,"html", "css"]
+    word = random.choice(words)
+    guessed_letters = []
+    attempts = 7
+    
+    print("Welcome to hangman!" )
+    print("_ " * len(word))
+
+
+
+    while attempts > 0:
+        guess = input("Guess a letter: ").lower()
+
+
+
+        if guess in guessed_letters:
+            print("You've already guessed the letter try again")
+            continue
+
+
+        guessed_letters.append(guess)
+
+        if guess in word:
+            print("Correct")
+        else:
+            print("Wrong")
+
+        
+        guessed_word = ""
+        for letter in word:
+            if letter in guessed_letters:
+                guessed_word += letter + " "
+            else:
+                guessed_word += "_ "
+
+        print(guessed_word)
+
+        
+        if "_" not in guessed_word:
+            print("Congratulations! You won!")
+            break
+
+        print("Attempts remaining:", attempts)
+
+    if attempts == 0:
+        print("Sorry, you lost! The word was:", word)
+
+hangman()
+
+#5_ Matrix tracsposition : write a function that transposes a square matrix (2D list) 
+
+
+
+def square(matrix):
+    rows = len(matrix)
+    cols = len(matrix[0])
+    
+    transposed = [[ 0 for i in range(rows)] for  _ in range (cols)]
+    
+    for i in range(rows):
+        for j in range(cols):
+            transposed[j][i] = matrix[i][j]
+            
+    return transposed
+
+#6_ Fibonouci sequence : write a function that generates the fibonouci sequence up to given number of terms 
+
+
+def is_fibonouci(num_terms):
+    sequnce = [0 ,1]
+    while len(sequnce) < num_terms : 
+        next_terms  = sequnce[-1] + sequnce[-2]
+        sequnce.append(next_terms)
+        
+        
+    return sequnce
+    
+#7_ word Count:write a function that takes a sentences as input and returns a dictionnary containnig the count of each word in the sentnce
+
+
+def count(sentence):
+    word_count = {}
+    words = sentence.split()
+    
+    
+    for word in words:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] =  1
+            
+            
+    return word_count
+
+
+#8Password generator: write a function that generates a random password with a given length , consisting of a mix of uppercase
+#letters , lower case letters  digits , and special characters
+
+import random 
+import string
+
+def random_pass(length):
+  characters = string.ascii_letters + string.digits + string.punctuation 
+  
+  password = ''.join(random.choice(characters)for _ in range (length))
+  return password
+
+
+passa = random_pass(10)
+print(passa)
+
+
+
+
+        
+#9_ Anagram cheker: Write a function that takes two strings as input and determines whetever they are angrams 
+#Anagrams are words or phrases formed by rearranging  the letters  of another word or phrase 
+
+
+def anagrams(string1,string2):
+    string1 = string1.lower().replace(" ","")
+    string2 = string2.lower().replace(" ","")
+    
+    
+    
+    if len(string1) != len(string2):
+        return False
+    
+    
+    count1 = {}
+    count2= {}
+    
+    
+    for char in string1:
+        if char in count1:
+            count1[char] += 1
+        else:
+            count1[char] =1 
+            
+            
+    for char in string2:
+        if char in count2:
+            count1[char] += 1
+        else:
+            count2[char] = 1 
+
+
+
+return count1 == count2 
+
+
+
+
+#10_ common elements: write a function that takes two list as input and returns a new list containig a new common elements between the two element list
+
+def find_common_elements(list1, list2):
+    common_elements = []
+    for element in list1:
+        if element in list2 and element not in common_elements:
+            common_elements.append(element)
+    return common_elements
+
+
+
+
+
+    
+
+
+
+    
